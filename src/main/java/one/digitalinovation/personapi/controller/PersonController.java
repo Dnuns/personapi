@@ -23,13 +23,15 @@ import one.digitalinovation.personapi.service.PersonService;
 public class PersonController {
 	
 	@Autowired
-	private PersonService service;
+	private PersonService personService;
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
 		
-		return service.createPerson(personDTO);
+		return personService.createPerson(personDTO);
 	}
+	
+	
 
 }
