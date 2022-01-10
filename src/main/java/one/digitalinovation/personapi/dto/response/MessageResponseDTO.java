@@ -9,14 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@SuppressWarnings("unused")
 public class MessageResponseDTO {
 	
 	private String message;
-
-	public static Object builder() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-
 }

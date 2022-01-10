@@ -4,10 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 import one.digitalinovation.personapi.dto.response.MessageResponseDTO;
+import one.digitalinovation.personapi.dto.response.request.PersonDTO;
 import one.digitalinovation.personapi.entity.Person;
 import one.digitalinovation.personapi.repository.PersonRepository;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Service
 public class PersonService {
 	
@@ -19,9 +25,11 @@ public class PersonService {
 	}
 	
 	@PostMapping
-	public MessageResponseDTO createPerson(Person person) {
+	public MessageResponseDTO createPerson(PersonDTO personDTO) {
 		
-		Person savedPerson = personRepository.save(person);	
+		Person personToSave = Person.builder().build();
+		
+		Person savedPerson = personRepository.save(personDTO);	
 		return MessageResponseDTO
 				.builder()
 				.message("Created person with ID " + savedPerson.getId())
