@@ -13,8 +13,4 @@ public enum PhoneType {
 
 	private final String description;
 	
-	PhoneType(String description) {		
-		this.description = description;
-	}
-	
 }

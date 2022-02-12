@@ -25,11 +25,6 @@ public class PersonService {
 	
 	private final PersonMapper personMapper = PersonMapper.INSTANCE;
 	
-	@Autowired
-	public PersonService(PersonRepository personRepository) {
-		this.personRepository = personRepository;
-	}
-	
 	@PostMapping
 	public MessageResponseDTO createPerson(PersonDTO personDTO) {
 		
@@ -37,8 +32,7 @@ public class PersonService {
 		
 		Person savedPerson = personRepository.save(personToSave);	
 		return MessageResponseDTO
-				.builder()
-				.message("Created person with ID " + savedPerson.getId())
+				.message("Created person with ID " +  personToSave.getId())
 				.build();
 	}
 
@@ -48,4 +42,5 @@ public class PersonService {
 				.map(personMapper::toDTO)
 				.collect(Collectors.toList());
 	}
+
 }

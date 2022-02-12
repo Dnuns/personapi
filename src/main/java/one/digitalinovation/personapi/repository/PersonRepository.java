@@ -6,6 +6,4 @@ import one.digitalinovation.personapi.entity.Person;
 
 public interface PersonRepository extends JpaRepository<Person, Long> {
 	
-	
-
 }
