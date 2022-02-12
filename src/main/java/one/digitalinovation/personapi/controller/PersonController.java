@@ -1,5 +1,7 @@
 package one.digitalinovation.personapi.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +31,9 @@ public class PersonController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
 		return personService.createPerson(personDTO);
+	}
+	
+	public List<PersonDTO> listAll(){
+		return personService.listAll();
 	}
 }
