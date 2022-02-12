@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@SuppressWarnings("unused")
 public class PersonDTO {
 	
 	private Long id;

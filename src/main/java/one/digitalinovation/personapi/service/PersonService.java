@@ -16,8 +16,6 @@ import one.digitalinovation.personapi.entity.Person;
 import one.digitalinovation.personapi.mapper.PersonMapper;
 import one.digitalinovation.personapi.repository.PersonRepository;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Service
 public class PersonService {
 	
@@ -25,14 +23,21 @@ public class PersonService {
 	
 	private final PersonMapper personMapper = PersonMapper.INSTANCE;
 	
+	@Autowired	
+	public PersonService(PersonRepository personRepository) {
+		this.personRepository = personRepository;
+	}
+
 	@PostMapping
 	public MessageResponseDTO createPerson(PersonDTO personDTO) {
 		
 		Person personToSave = personMapper.toModel(personDTO);
 		
 		Person savedPerson = personRepository.save(personToSave);	
+		
 		return MessageResponseDTO
-				.message("Created person with ID " +  personToSave.getId())
+				.builder()
+				.message("Created person with ID " +  savedPerson.getId())
 				.build();
 	}
 

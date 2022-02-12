@@ -15,7 +15,6 @@ import one.digitalinovation.personapi.enums.PhoneType;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@SuppressWarnings("unused")
 public class PhoneDTO {
 	
 	private Long id;
