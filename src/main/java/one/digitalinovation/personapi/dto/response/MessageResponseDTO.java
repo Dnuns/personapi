@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@SuppressWarnings("unused")
 public class MessageResponseDTO {
 	
 	private String message;
